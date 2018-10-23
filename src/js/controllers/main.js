@@ -359,7 +359,29 @@
 
         $scope.changeLanguage(getQueryParam('lang'));
         $scope.isWindows = getQueryParam('server') === 'Windows';
-        $scope.fileNavigator.refresh();
 
+        var currentPath = fileManagerConfig.currentPath
+            .replace(/^\//, '');
+        var basePath = fileManagerConfig.basePath
+            .replace(/^\//, '');
+        if (currentPath !== basePath) {
+            // Process current path
+            //
+            // In order for the file navigator to work properly we have to
+            // refresh all subdirectories up to the currentPath starting from root
+            var refreshOneSubDir = function (path, level) {
+                var pathAsArray = (path.trim() ? path.split('/') : []);
+                if (pathAsArray.length < level) {
+                    return;
+                }
+                var partialPath = pathAsArray.splice(0, level).join('/');
+                $scope.fileNavigator.setCurrentPath(partialPath).then(function () {
+                    refreshOneSubDir(path, level + 1);
+                });
+            };
+            refreshOneSubDir(currentPath, 0);
+        } else {
+            $scope.fileNavigator.refresh()
+        }
     }]);
 })(angular);

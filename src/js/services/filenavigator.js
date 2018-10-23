@@ -154,6 +154,13 @@
             return this.currentPath.slice(-1)[0] || '/';
         };
 
+        FileNavigator.prototype.setCurrentPath = function(path) {
+            var myPath = (path || '')
+                .replace(/^\//, '');
+            this.currentPath = myPath.trim() ? myPath.split('/') : [];
+            return this.refresh();
+        };
+
         return FileNavigator;
     }]);
 })(angular);
