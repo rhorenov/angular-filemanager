@@ -46,6 +46,10 @@
                 pickFolders: false
             },
 
+            hideSize: false,
+            hideDate: false,
+            hidePermissions: false,
+
             multipleDownloadFileName: 'angular-filemanager.zip',
             filterFileExtensions: [],
             showExtensionIcons: true,
