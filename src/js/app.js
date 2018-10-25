@@ -23,6 +23,10 @@
         }
         if (e.pageY >= window.innerHeight - menu.height()) {
             e.pageY -= menu.height();
+            // Prevent menu from leaving the visible area
+            if (e.pageY < 0) {
+                e.pageY = 0;
+            }
         }
 
         menu.hide().css({
