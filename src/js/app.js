@@ -34,6 +34,7 @@
             top: e.pageY
         }).appendTo('body').show();
         e.preventDefault();
+        e.stopPropagation();
     });
 
     if (! Array.prototype.find) {
