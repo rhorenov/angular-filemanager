@@ -172,6 +172,11 @@
             return returnElement ? element : true;
         };
 
+        $scope.modalWithZipExtension = function(id) {
+            $scope.temp.tempModel.name += '.zip';
+            return $scope.modal(id);
+        };
+
         $scope.modalWithPathSelector = function(id) {
             $rootScope.selectedModalPath = $scope.fileNavigator.currentPath;
             return $scope.modal(id);
