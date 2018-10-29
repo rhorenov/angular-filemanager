@@ -6,6 +6,7 @@
             appName: 'angular-filemanager v1.5',
             defaultLang: 'en',
             multiLang: true,
+            title: "filemanager",
 
             listUrl: 'bridges/php/handler.php',
             uploadUrl: 'bridges/php/handler.php',
