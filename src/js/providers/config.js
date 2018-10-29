@@ -51,6 +51,9 @@
             hideDate: false,
             hidePermissions: false,
 
+            maxTitlePathCharsMiddle: 8,
+            maxTitlePathCharsLast: 12,
+
             multipleDownloadFileName: 'angular-filemanager.zip',
             filterFileExtensions: [],
             showExtensionIcons: true,
